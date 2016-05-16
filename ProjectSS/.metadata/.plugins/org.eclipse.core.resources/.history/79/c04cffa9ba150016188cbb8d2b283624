@@ -1,0 +1,35 @@
+package il.ac.hit.finalproject;
+
+import java.util.Date;
+//import javassist.bytecode.Descriptor.Iterator;
+public class Program {
+	
+	public static void main(String[] args) {
+		ToDoListItem item1 = new ToDoListItem("Test", "What house?", new Date(), new Date());
+		User item2 = new User(1, "Jalevertov", "BLAAAAAAAA", "jlevertov@walla.com", true);
+		
+		ToDoListItem[] itemsList = item1.GetItems();
+		
+		for(int i=0; i < itemsList.length ; i++)
+    	{
+    		out.println(itemsList[i].getTitle());
+    	}
+		
+		IDAO dao = DAO.GetInstance();
+		try {
+			//dao.AddListItem(item1);
+			//dao.AddUser(item2);
+			dao.PrintItems();
+			dao.PrintUsers();
+		}
+		catch (ToDoListPlatformException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+	}
+
+}
